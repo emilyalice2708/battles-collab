@@ -12,8 +12,13 @@ get '/another' do
   "another route"
 end
 
-get '/cat' do
-  "<div style='border: 3px dashed red'>
-  <img src='http://bit.ly/1eze8aE'>
-  </div>"
+get '/random_cat' do
+  @random_name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params
+  @random_name = params[:name]
+  erb(:index)
 end
